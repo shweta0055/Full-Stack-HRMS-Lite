@@ -4,3 +4,4 @@ django-cors-headers
 pymysql
 gunicorn
 python-dotenv
+whitenoise
