@@ -45,10 +45,15 @@ while ! mysqladmin -u root -p"${DB_ROOT_PASS}" ping --silent; do
     sleep 1
 done
 
+# Ensure migrations directory exists for core app
+mkdir -p core/migrations
+touch core/migrations/__init__.py
+
 # Run Django migrations
 echo "Running migrations..."
-python manage.py makemigrations --noinput
+python manage.py makemigrations core --noinput
 python manage.py migrate --noinput
+
 
 
 # Collect static files

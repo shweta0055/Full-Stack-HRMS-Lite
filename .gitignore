@@ -4,4 +4,5 @@ __pycache__/
 *.pyc
 db.sqlite3
 /staticfiles/
-migrations/
+# Django migrations must NOT be ignored for production deployments
+# migrations/ 
