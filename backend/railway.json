@@ -1,10 +1,13 @@
 {
     "build": {
         "builder": "DOCKERFILE",
-        "dockerfilePath": "backend/Dockerfile"
+        "dockerfilePath": "Dockerfile",
+        "watchPatterns": [
+            "**"
+        ]
     },
     "deploy": {
-        "startCommand": "sh /app/entrypoint.sh",
+        "startCommand": "sh entrypoint.sh",
         "restartPolicyType": "ON_FAILURE"
     }
 }
