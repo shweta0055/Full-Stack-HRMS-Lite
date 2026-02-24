@@ -6,7 +6,7 @@
         "context": "."
     },
     "deploy": {
-        "startCommand": "sh backend/entrypoint.sh",
+        "startCommand": "/app/entrypoint.sh",
         "restartPolicyType": "ON_FAILURE"
     }
 }

@@ -41,5 +41,6 @@ echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
 # Start Gunicorn
-echo "Starting Gunicorn..."
-exec gunicorn --bind 0.0.0.0:8000 hrms_backend.wsgi:application
+echo "Starting Gunicorn on port ${PORT:-8000}..."
+exec gunicorn --bind 0.0.0.0:${PORT:-8000} hrms_backend.wsgi:application
+
