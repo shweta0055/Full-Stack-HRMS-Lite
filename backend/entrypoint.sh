@@ -13,7 +13,7 @@ fi
 
 # Start MySQL in background
 echo "Starting MySQL..."
-mysqld_safe --user=mysql --datadir=/var/lib/mysql &
+mariadbd-safe --user=mysql --datadir=/var/lib/mysql &
 
 # Wait for MySQL to be ready
 echo "Waiting for MySQL to start..."
@@ -21,16 +21,22 @@ while ! mysqladmin ping -h"localhost" --silent; do
     sleep 1
 done
 
-# Create database and user if they don't exist
+# Database credentials
 DB_NAME=${DB_NAME:-hrms_lite}
-DB_USER=${DB_USER:-root}
-DB_PASSWORD=${DB_PASSWORD:-root}
+DB_ROOT_PASS=${DB_PASSWORD:-root}
 
 echo "Configuring Database..."
-mysql -e "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;"
-# Note: In MariaDB/MySQL internal container, we often just use root for simplicity if it's all-in-one
-mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';"
-mysql -e "FLUSH PRIVILEGES;"
+
+# Try to connect without password first (first run), then with password (subsequent runs)
+if mysql -u root -e "status" > /dev/null 2>&1; then
+    echo "Configuring MySQL (Initial setup)..."
+    mysql -u root -e "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;"
+    mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOT_PASS}';"
+    mysql -u root -e "FLUSH PRIVILEGES;"
+else
+    echo "Configuring MySQL (Password already set)..."
+    mysql -u root -p"${DB_ROOT_PASS}" -e "CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;"
+fi
 
 # Run Django migrations
 echo "Running migrations..."
@@ -43,4 +49,3 @@ python manage.py collectstatic --noinput
 # Start Gunicorn
 echo "Starting Gunicorn on port ${PORT:-8000}..."
 exec gunicorn --bind 0.0.0.0:${PORT:-8000} hrms_backend.wsgi:application
-
