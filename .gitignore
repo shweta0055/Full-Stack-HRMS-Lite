@@ -1,4 +1,7 @@
-__pycache__
+__pycache__/
 .env
-migrations/
 .venv
+*.pyc
+db.sqlite3
+/staticfiles/
+migrations/

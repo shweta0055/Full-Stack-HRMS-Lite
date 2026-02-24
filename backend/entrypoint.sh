@@ -47,7 +47,9 @@ done
 
 # Run Django migrations
 echo "Running migrations..."
+python manage.py makemigrations --noinput
 python manage.py migrate --noinput
+
 
 # Collect static files
 echo "Collecting static files..."
