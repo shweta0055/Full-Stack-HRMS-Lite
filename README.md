@@ -27,7 +27,7 @@ A lightweight, professional Human Resource Management System built as a part of 
 1. Navigate to the `backend` directory.
 2. Install dependencies:
    ```bash
-   pip install django djangorestframework django-cors-headers mysqlclient
+   pip install django djangorestframework django-cors-headers pymysql
    ```
 3. Create a MySQL database named `hrms_lite`.
 4. Update database credentials in `hrms_backend/settings.py` if necessary.
