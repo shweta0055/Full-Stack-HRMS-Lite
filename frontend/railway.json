@@ -1,7 +1,9 @@
-[build
-]
-builder = "dockerfile"
-dockerfilePath = "frontend/Dockerfile"[deploy
-]
-healthcheckPath = "/"
-restartPolicyType = "on_failure"
+{
+    "build": {
+        "builder": "DOCKERFILE",
+        "dockerfilePath": "frontend/Dockerfile"
+    },
+    "deploy": {
+        "restartPolicyType": "ON_FAILURE"
+    }
+}
