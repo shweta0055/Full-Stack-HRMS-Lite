@@ -25,7 +25,7 @@ function App() {
     <Router>
       <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950">
         {/* Sidebar */}
-        <aside className="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+        <aside className="w-64 bg-[#d2eafa] dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
           <div className="p-6">
             <h1 className="text-2xl font-bold text-primary-600 flex items-center gap-2">
               <div className="w-8 h-8 bg-primary-600 rounded-md flex items-center justify-center text-white">H</div>

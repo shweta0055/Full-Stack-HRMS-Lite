@@ -62,7 +62,7 @@ const Attendance = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Mark Attendance Form */}
                 <div className="lg:col-span-1">
-                    <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 sticky top-8">
+                    <div className="bg-[#d2eafa] dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 sticky top-8">
                         <h2 className="text-lg font-bold mb-6 flex items-center gap-2">
                             <CheckCircle2 size={20} className="text-primary-600" />
                             Mark Attendance
@@ -122,7 +122,7 @@ const Attendance = () => {
 
                 {/* History Table */}
                 <div className="lg:col-span-2">
-                    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm">
+                    <div className="bg-[#d2eafa] dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm">
                         <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between flex-wrap gap-4">
                             <h2 className="text-lg font-bold">Attendance History</h2>
                             <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800 px-4 py-2 rounded-xl">
@@ -143,7 +143,7 @@ const Attendance = () => {
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
                                 <thead className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 font-medium text-sm">
-                                    <tr>
+                                    <tr className='border-b-[5px] border-[#030354]'>
                                         <th className="px-6 py-4">Date</th>
                                         <th className="px-6 py-4">Employee</th>
                                         <th className="px-6 py-4">Status</th>

@@ -85,7 +85,7 @@ const Employees = () => {
                 </button>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm">
+            <div className="bg-[#d2eafa] dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm">
                 <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center gap-3">
                     <Search size={20} className="text-slate-400" />
                     <input
@@ -100,7 +100,7 @@ const Employees = () => {
                 <div className="overflow-x-auto">
                     <table className="w-full text-left">
                         <thead className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 font-medium text-sm">
-                            <tr>
+                            <tr className="border-b-[5px] border-[#030354]">
                                 <th className="px-6 py-4">Employee ID</th>
                                 <th className="px-6 py-4">Full Name</th>
                                 <th className="px-6 py-4">Email</th>
@@ -131,7 +131,7 @@ const Employees = () => {
                                         <td className="px-6 py-4 font-semibold">{emp.full_name}</td>
                                         <td className="px-6 py-4 text-slate-500 text-sm">{emp.email}</td>
                                         <td className="px-6 py-4">
-                                            <span className="bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full text-xs font-medium">
+                                            <span className=" bg-[#001a5b] text-white dark:bg-slate-800 px-3 py-1 rounded-full text-xs font-medium">
                                                 {emp.department}
                                             </span>
                                         </td>
@@ -154,7 +154,7 @@ const Employees = () => {
             {/* Add Employee Modal */}
             {showModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-                    <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all">
+                    <div className="bg-[#d2eafa] dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden transform transition-all">
                         <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-800">
                             <h2 className="text-xl font-bold">Add New Employee</h2>
                             <button onClick={() => setShowModal(false)} className="text-slate-400 hover:text-slate-600">
